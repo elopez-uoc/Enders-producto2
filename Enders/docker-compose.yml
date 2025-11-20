@@ -1,4 +1,4 @@
-version: '3.8'
+ersion: '3.8'
 
 services:
   # Servicio Web con Apache y PHP
@@ -16,9 +16,9 @@ services:
       - db
     environment:
       - DB_HOST=db
-      - DB_NAME=${DB_DATABASE}
-      - DB_USER=${DB_USER}
-      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_NAME=enders_db
+      - DB_USER=enders_user
+      - DB_PASSWORD=secret
 
   # Servicio de Base de Datos (MariaDB)
   db:
@@ -26,10 +26,10 @@ services:
     container_name: enders-db
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${DB_DATABASE}
-      MYSQL_USER: ${DB_USER}
-      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: root_secret
+      MYSQL_DATABASE: enders_db
+      MYSQL_USER: enders_user
+      MYSQL_PASSWORD: secret
     volumes:
       - db_data:/var/lib/mysql
 
@@ -46,3 +46,4 @@ services:
 
 volumes:
   db_data:
+
